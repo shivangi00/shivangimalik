@@ -1,0 +1,544 @@
+/* App.css */
+:root {
+  --bg: #fafafa;
+  --text: #111827;
+  --border-subtle: #e5e7eb;
+  --muted: #6b7280;
+  --muted-soft: #9ca3af;
+  --card-bg: #ffffff;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg: #020617;
+  --text: #f9fafb;
+  --border-subtle: #1f2937;
+  --muted: #9ca3af;
+  --muted-soft: #6b7280;
+  --card-bg: #020617;
+}
+
+/* page background + base font */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* TOP NAVBAR */
+/* 
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 3rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+} */
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.top-nav .logo {
+  font-weight: 600;
+}
+
+.top-nav .nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.top-nav .nav-links button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.top-nav .nav-links button:hover {
+  color: var(--text);
+}
+
+
+.top-nav .right-side {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted-soft);
+  font-size: 0.8rem;
+}
+
+.top-nav .book-btn {
+  border: 1px solid var(--text);
+  background: var(--text);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+}
+
+.book-btn a{
+  color: white;
+  text-decoration: none;
+}
+
+/* MAIN LAYOUT
+   Left: ecard column (~1/3)
+   Right: portfolio column (~2/3)
+*/
+
+.app-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 8fr); /* ≈ 1/3 + 2/3 */
+  min-height: calc(100vh - 52px); /* minus navbar height */
+  padding: 2.5rem 3rem;
+  column-gap: 3rem;
+  box-sizing: border-box;
+}
+
+/* LEFT COLUMN: ecard – centered vertically and horizontally in its column */
+
+/* LEFT COLUMN: heading top, card center, footer bottom */
+
+.ecard-column {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, card, footer */
+  align-items: center;
+  /* this column is the left 1/3 of app-layout, already defined there */
+}
+
+/* big heading at top */
+.ecard-header h1 {
+  margin: 0 0 1rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* footer pinned to bottom of left column */
+.ecard-footer {
+  font-size: 0.75rem;
+  color: var(--muted-soft);
+  margin-top: 1rem;
+}
+
+.ecard {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 80%;
+  max-width: 380px; /* keeps it reasonable on big screens */
+  /* height: min-content; */
+  padding: 0.9rem;
+  border-radius: 10px;
+  box-shadow: 0 0px 20px 0 rgba(107, 107, 107, 0.2),
+    0 0 0 0 rgba(141, 141, 141, 0.19);
+  background: var(--card-bg);
+  justify-self: flex-start;  /* horizontal centering in left column */
+  align-self: center;    /* vertical centering in left column */
+}
+
+/* vertical spacing inside card */
+.ecard > * {
+  margin: 5px 0;
+}
+
+
+.ecard .profileInfo > * {
+  margin: 5px 0;
+  font-size: small;
+}
+
+/* profile text */
+
+.ecard .name {
+  font-size: x-large;
+  font-weight: 450;
+  color: var(--text);
+}
+
+.profilePhoto {
+  height: calc(100 / 100 * 15vw);
+  max-height: 260px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.ecard .title {
+  font-size: medium;
+  color: rgb(64, 64, 64);
+}
+
+/* socials in card */
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+}
+
+a {
+  color: var(--text);
+  font-size: small;
+  text-decoration: none;
+}
+
+i {
+  color: grey;
+  font-size: small;
+}
+
+.socials i:hover, .title i:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.contact p {
+  font-size: small;
+}
+
+/* status button + ripple */
+
+.busy {
+  position: relative;
+  color: blue;
+}
+
+.status-btn {
+  font-size: small;
+  color: rgb(65, 65, 65);
+  padding: 0.2em 0.5em;
+  width: max-content;
+  background-color: transparent;
+  border: grey 0.05rem solid;
+  margin: 5px 0;
+}
+
+.status-btn:hover {
+  cursor: default;
+  border-color: grey;
+}
+
+.status-btn:focus,
+.status-btn:focus-visible {
+  outline: none;
+}
+
+/* ensure the button layout works nicely */
+.status-btn.btn-style {
+  display: inline-flex;
+  align-items: center;
+}
+
+.online {
+  position: relative;
+  color: #22c55e;
+  font-size: smaller;
+}
+
+/* RIGHT COLUMN – timeline (left) + stats (right) inside */
+/* RIGHT COLUMN – timeline (left) + stats (right) inside */
+
+.portfolio-section {
+  border-left: 1px solid var(--border-subtle);
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+  column-gap: 2rem;
+  padding-left: 2rem;
+  font-size: 0.85rem;
+  /* make the whole right column fill the viewport height */
+  max-height: calc(100vh - 52px - 5rem); /* navbar height + padding approx */
+}
+
+
+.timeline-column {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  /* max-height: calc(100vh - 52px - 5rem); adjust to your layout */
+  max-height: fit-content;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  border-right: 1px solid var(--border-subtle);
+}
+
+.timeline-column::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none; /* Chrome/Safari/Opera */
+}
+
+
+
+.achievements-block h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.achievements-block {
+  font-size: 0.85rem;
+  padding-bottom: 1rem;
+}
+
+.ach-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.ach-row span {
+  font-size: 0.75rem;
+  /* color: #9ca3af; */
+  color: #70767f;
+}
+
+.ach-row p {
+  margin: 0;
+}
+
+.ach-meta {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.ach-txt {
+  text-align: justify;
+  padding-right: 1.5rem;
+  color: var(--text);
+}
+/* stats column */
+
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stats-table {
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stats-row span:first-child {
+  font-weight: 500;
+}
+
+.text-sm {
+  font-size: medium;
+}
+
+.text-lrg{
+  font-size: large;
+}
+
+.text-xlrg{
+  font-size: x-large;
+}
+
+.fwt-600 {
+  font-weight: 600;
+}
+
+.fwt-400 {
+  font-weight: 400;
+}
+
+
+/*====================*/
+
+.project-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.5rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid #f3f4f6;
+}
+
+.project-thumb-link {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-thumb-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-info .project-title {
+  margin: 0 0 0.2rem;
+  font-weight: 500;
+}
+
+
+/* =================MARQUEEE */
+
+.skills-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0;
+  position: relative;
+}
+
+.skills-marquee-track {
+  display: inline-flex;
+  gap: 2rem;
+  animation: skills-scroll 25s linear infinite;
+}
+
+.skills-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.skills-marquee-item svg {
+  font-size: 1.3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.download-cv-link {
+  font-size: 0.8rem;
+  color: var(--btn-outline-text);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* pause on hover */
+.skills-marquee:hover .skills-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes skills-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.builder-field {
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.builder-field label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.builder-field input[type="text"],
+.builder-field input[type="file"] {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.palette-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.palette-swatch {
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid transparent;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.palette-swatch.active {
+  border-color: var(--border-subtle);
+}
+
+.social-edit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .top-nav {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    padding: 1.5rem 1.25rem;
+    min-height: auto;
+  }
+
+  .ecard {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+    align-self: flex-start;
+  }
+
+  .portfolio-section {
+    border-left: none;
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    padding-left: 0;
+  }
+}
+
