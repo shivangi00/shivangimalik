@@ -1,7 +1,7 @@
 // App.jsx
 import "./App.css";
-import Contact from "./sections/eCard/Contact.jsx";
-import ProfileInfo from "./sections/eCard/ProfileInfo.jsx";
+// import Contact from "./sections/eCard/Contact.jsx";
+// import ProfileInfo from "./sections/eCard/ProfileInfo.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Achievements from "./sections/main/Achievements.jsx";
 import About from "./sections/main/About.jsx";
@@ -57,8 +57,6 @@ function App() {
     };
   }, []);
 
-
-
   return (
     <>
       <Nav />
@@ -69,10 +67,14 @@ function App() {
             <h1>Get your own eCard <i className="fa-solid fa-arrow-turn-down text-xlrg"></i></h1>
           </header>
 
-          <div className="ecard">
-            <ProfileInfo yourName="Shivangi Malik" title="Software Developer" />
-            <Contact onShare={handleShare} />
-          </div>
+          
+          <iframe
+            src="http://localhost:5173/card/6jlgpncsfmltf96ft?embed=true"
+            width={260} height={380}
+            style={{ border:0, borderRadius:18, overflow:"hidden", display:"block" }}
+            loading="lazy" title="eCard"
+          />
+          
 
           <footer className="ecard-footer">
             <span>© {new Date().getFullYear()} Shivangi Malik</span>
