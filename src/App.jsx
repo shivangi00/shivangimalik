@@ -69,7 +69,7 @@ function App() {
 
           
           <iframe
-            src="http://localhost:5173/card/6jlgpncsfmltf96ft?embed=true"
+            src="https://bee-card.vercel.app/card/6jlgpncsfmltf96ft?embed=true"
             width={260} height={380}
             style={{ border:0, borderRadius:18, overflow:"hidden", display:"block" }}
             loading="lazy" title="eCard"
