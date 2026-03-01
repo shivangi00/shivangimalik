@@ -64,7 +64,7 @@ function App() {
       <div className="app-layout">
         <div className="ecard-column">
           <header className="ecard-header">
-            <h1>Get your own eCard <i className="fa-solid fa-arrow-turn-down text-xlrg"></i></h1>
+            <h1>Get your <a href="https://bee-card.vercel.app/"><h1>🐝 buzz card <i className="fa-solid fa-arrow-turn-down text-xlrg"></i></h1></a></h1>
           </header>
 
           
@@ -87,7 +87,7 @@ function App() {
             <Skills />
             <Experience />
             <Projects />
-            <Miscellaneous />
+            {/* <Miscellaneous /> */}
             <Publications />
             <Education />
             <Achievements />

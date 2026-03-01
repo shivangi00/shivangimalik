@@ -5,6 +5,22 @@ import widgetThumb from "../assets/game-thumb.jpg";
 
 export const PROJECTS = [
   {
+    slug: "buzz-card",
+    title: "🐝 buzz card",
+    tech: "React, Firebase, Google API, Firestore, Javascript, Git",
+    description:
+      "Customize - Create - Connect with your 🐝 buzz card in seconds! Networking made easy.",
+    image: gameThumb,
+    demoUrl: "https://bee-card.vercel.app/",
+  },{
+    slug: "git-terminal",
+    title: "Git It Right! - Interactive Git Terminal",
+    tech: "Git, JavaScript, HTML",
+    description:
+      "Interactive Git Terminal to simulate learning Git commands - add, commit, branch, merge, push - with real time command validation.",
+    image: gameThumb,
+    demoUrl: "https://git-it-right.netlify.app",
+  },{
     slug: "turn-based-game",
     title: "Turn Based Console Game",
     tech: "Java, DSA, Advanced OOPs",
